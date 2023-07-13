@@ -21,6 +21,14 @@ greetPerson(me);
 //greetPerson({name: 'shaun'});
 /** ------------------------------------------------------------------------------------------------------- */
 const Invoice_js_1 = require("./modules/Invoice.js");
+const Payments_js_1 = require("./modules/Payments.js");
+let docOne;
+let docTwo;
+docOne = new Invoice_js_1.Invoice('yoshi', 'web work', 250);
+docTwo = new Payments_js_1.Payments('mario', 'plumbing', 200);
+let docs = [];
+docs.push(docOne);
+docs.push(docTwo);
 const invoice1 = new Invoice_js_1.Invoice("Arya", "Portfolio for Arya", 500);
 const invoice2 = new Invoice_js_1.Invoice("Krish", "Portfolio for Krish", 1500);
 // console.log(invoice1);
@@ -29,7 +37,7 @@ const invoice2 = new Invoice_js_1.Invoice("Krish", "Portfolio for Krish", 1500);
 let invoices = [invoice1, invoice2];
 // console.log(invoices);
 invoices.forEach(inv => {
-    console.log(inv.formatObject());
+    console.log(inv.format());
 });
 /** ------------------------------------------------------------------------------------------------------- */
 /* Targetting DOM and Typecasting */
@@ -51,5 +59,12 @@ const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(type.value, toFrom.value, details.value, amount.valueAsNumber);
+    let doc;
+    if (type.value === 'invoice') {
+        doc = new Invoice_js_1.Invoice(toFrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payments_js_1.Payments(toFrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });

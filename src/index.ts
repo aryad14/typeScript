@@ -35,6 +35,19 @@ greetPerson(me);
 /** ------------------------------------------------------------------------------------------------------- */
 
 import { Invoice } from './modules/Invoice.js'
+import { Payments } from './modules/Payments.js'
+import { hasFormat } from './interfaces/hasFormat.js'
+
+
+let docOne: hasFormat;
+let docTwo: hasFormat;
+
+docOne = new Invoice('yoshi', 'web work', 250);
+docTwo = new Payments('mario', 'plumbing', 200);
+
+let docs: hasFormat[] = [];
+docs.push(docOne);
+docs.push(docTwo);
 
 const invoice1 = new Invoice("Arya", "Portfolio for Arya", 500);
 const invoice2 = new Invoice("Krish", "Portfolio for Krish", 1500);
@@ -48,7 +61,7 @@ let invoices: Invoice[] = [invoice1, invoice2];
 // console.log(invoices);
 
 invoices.forEach(inv => {
-    console.log(inv.formatObject());
+    console.log(inv.format());
 });
 
 
@@ -82,10 +95,11 @@ const amount = document.querySelector('#amount') as HTMLInputElement;
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
-    console.log(
-        type.value,
-        toFrom.value,
-        details.value,
-        amount.valueAsNumber
-    );
+    let doc: hasFormat;
+    if (type.value === 'invoice') {
+        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+    } else {
+        doc = new Payments(toFrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });

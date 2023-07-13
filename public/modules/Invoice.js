@@ -7,7 +7,7 @@ class Invoice {
         this.details = details;
         this.amount = amount;
     }
-    formatObject() {
+    format() {
         return `${this.clientName} owes rs. ${this.amount} for ${this.details}`;
     }
 }
