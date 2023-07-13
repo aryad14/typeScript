@@ -1,22 +1,27 @@
 /** This is the file for navigating and manipulating the DOM elements */
 
-
 class Invoice {
-    clientName: string;
-    details: string;
-    amount: number;
+    // readonly clientName: string; // cannot be modified within or outside the class
+    // private details: string; // can only be accessed and modified within the class
+    // public amount: number; // can be accessed and modified within and outside the class
 
-    constructor(cname: string, d: string, amt: number) {
-        this.clientName = cname;
-        this.details = d;
-        this.amount = amt;
-    }
+    /* constructor (cname: string, d: string, amt: number) {
+         this.clientName = cname;
+         this.details = d;
+         this.amount = amt;
+     } */
+
+    //another way to write the constructor if having access modifiers
+    constructor(
+        readonly clientName: string,
+        private details: string,
+        public amount: number
+    ) { }
 
     formatObject() {
         return `${this.clientName} owes rs. ${this.amount} for ${this.details}`;
     }
 }
-
 
 const invoice1 = new Invoice("Arya", "Portfolio for Arya", 500);
 const invoice2 = new Invoice("Krish", "Portfolio for Krish", 1500);
@@ -32,6 +37,8 @@ let invoices: Invoice[] = [invoice1, invoice2];
 invoices.forEach(inv => {
     console.log(inv.formatObject());
 });
+
+
 
 
 

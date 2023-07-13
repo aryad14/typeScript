@@ -1,10 +1,19 @@
 "use strict";
 /** This is the file for navigating and manipulating the DOM elements */
 class Invoice {
-    constructor(cname, d, amt) {
-        this.clientName = cname;
-        this.details = d;
-        this.amount = amt;
+    // readonly clientName: string; // cannot be modified within or outside the class
+    // private details: string; // can only be accessed and modified within the class
+    // public amount: number; // can be accessed and modified within and outside the class
+    /* constructor (cname: string, d: string, amt: number) {
+         this.clientName = cname;
+         this.details = d;
+         this.amount = amt;
+     } */
+    //another way to write the constructor if having access modifiers
+    constructor(clientName, details, amount) {
+        this.clientName = clientName;
+        this.details = details;
+        this.amount = amount;
     }
     formatObject() {
         return `${this.clientName} owes rs. ${this.amount} for ${this.details}`;
