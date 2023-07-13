@@ -136,3 +136,40 @@ let typeAnyObj: {
     age: any
 };
 
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/** Function Basics */
+
+let newFun: Function; //explicitily defining newFun as a function
+
+newFun = () => {
+    console.log('hello from a function')
+};
+
+newFun();
+
+const add = (num1: number, num2: number, num3: number | string = 30): void => {
+    console.log('addition is: ', (num1 + num2));
+    console.log('third variable is: ', num3)
+};
+// we can put '?' sign after a variable to set a default value and the function will work as required even if the third value is not passed during function call.
+// or we can simply put default value as shown above
+
+add(50, 20); //this line passes 2 value to function 'add' and the third value 'num3' is considered as undefined if no value is passed to it during function call
+
+add(50, 25, '100'); // now the value of 'num3' will be 100
+
+// defining a function returning a value
+
+const subtract = (num1: number, num2: number): number => {
+    // console.log("the Subtraction is: ", (num1 - num2));
+    return num1 - num2;
+};
+
+// and specified data type after the function parathesis is the return data type
+// now even if we do not provide the return data type explicitly, typescript automatically infers the return type on the basis of values passed into the function
+
+let resultSub = subtract(50, 30);
+console.log(resultSub);
+
+//by default a function which does not contain any return statement, the function automatically sets the function type to void;
+
