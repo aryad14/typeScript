@@ -1,5 +1,25 @@
 "use strict";
 /** This is the file for navigating and manipulating the DOM elements */
+class Invoice {
+    constructor(cname, d, amt) {
+        this.clientName = cname;
+        this.details = d;
+        this.amount = amt;
+    }
+    formatObject() {
+        return `${this.clientName} owes rs. ${this.amount} for ${this.details}`;
+    }
+}
+const invoice1 = new Invoice("Arya", "Portfolio for Arya", 500);
+const invoice2 = new Invoice("Krish", "Portfolio for Krish", 1500);
+// console.log(invoice1);
+// console.log(invoice2);
+//adding the objects into an array
+let invoices = [invoice1, invoice2];
+// console.log(invoices);
+invoices.forEach(inv => {
+    console.log(inv.formatObject());
+});
 /* Targetting DOM and Typecasting */
 const anchorTag = document.querySelector('a'); // the anchor can contain a null value in it's href parameter
 //so to avoid it we can use an if statement as below
