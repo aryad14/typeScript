@@ -173,3 +173,21 @@ console.log(resultSub);
 
 //by default a function which does not contain any return statement, the function automatically sets the function type to void;
 
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/** 'type' in TS */
+
+type stringOrNumber = string | number;
+type userObject = { uname: string, age: number, online: boolean }
+
+const userDetails = (name: string, age: number) => {
+    console.log('user')
+};
+
+const getUser = (uid: stringOrNumber, name: string) => {
+    console.log(`username is: ${name}`)
+};
+
+const getUser1 = (user: userObject) => {
+    console.log(`user age: ${user.age}`)
+};

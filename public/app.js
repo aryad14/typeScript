@@ -118,4 +118,12 @@ const subtract = (num1, num2) => {
 // now even if we do not provide the return data type explicitly, typescript automatically infers the return type on the basis of values passed into the function
 let resultSub = subtract(50, 30);
 console.log(resultSub);
-//by default a function which does not contain any return statement, the function automatically sets the function type to void;
+const userDetails = (name, age) => {
+    console.log('user');
+};
+const getUser = (uid, name) => {
+    console.log(`username is: ${name}`);
+};
+const getUser1 = (user) => {
+    console.log(`user age: ${user.age}`);
+};
