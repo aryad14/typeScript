@@ -1,26 +1,9 @@
 "use strict";
 /** This is the file for navigating and manipulating the DOM elements */
-class Invoice {
-    // readonly clientName: string; // cannot be modified within or outside the class
-    // private details: string; // can only be accessed and modified within the class
-    // public amount: number; // can be accessed and modified within and outside the class
-    /* constructor (cname: string, d: string, amt: number) {
-         this.clientName = cname;
-         this.details = d;
-         this.amount = amt;
-     } */
-    //another way to write the constructor if having access modifiers
-    constructor(clientName, details, amount) {
-        this.clientName = clientName;
-        this.details = details;
-        this.amount = amount;
-    }
-    formatObject() {
-        return `${this.clientName} owes rs. ${this.amount} for ${this.details}`;
-    }
-}
-const invoice1 = new Invoice("Arya", "Portfolio for Arya", 500);
-const invoice2 = new Invoice("Krish", "Portfolio for Krish", 1500);
+Object.defineProperty(exports, "__esModule", { value: true });
+const Invoice_js_1 = require("./modules/Invoice.js");
+const invoice1 = new Invoice_js_1.Invoice("Arya", "Portfolio for Arya", 500);
+const invoice2 = new Invoice_js_1.Invoice("Krish", "Portfolio for Krish", 1500);
 // console.log(invoice1);
 // console.log(invoice2);
 //adding the objects into an array
