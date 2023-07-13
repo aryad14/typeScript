@@ -1,6 +1,25 @@
 "use strict";
 /** This is the file for navigating and manipulating the DOM elements */
 Object.defineProperty(exports, "__esModule", { value: true });
+const me = {
+    name: 'shaun',
+    age: 30,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log('I spent ', amount);
+        return amount;
+    },
+};
+console.log(me);
+me.speak('hello, world');
+const greetPerson = (person) => {
+    console.log('hello ', person.name);
+};
+greetPerson(me);
+//greetPerson({name: 'shaun'});
+/** ------------------------------------------------------------------------------------------------------- */
 const Invoice_js_1 = require("./modules/Invoice.js");
 const invoice1 = new Invoice_js_1.Invoice("Arya", "Portfolio for Arya", 500);
 const invoice2 = new Invoice_js_1.Invoice("Krish", "Portfolio for Krish", 1500);
@@ -12,6 +31,7 @@ let invoices = [invoice1, invoice2];
 invoices.forEach(inv => {
     console.log(inv.formatObject());
 });
+/** ------------------------------------------------------------------------------------------------------- */
 /* Targetting DOM and Typecasting */
 const anchorTag = document.querySelector('a'); // the anchor can contain a null value in it's href parameter
 //so to avoid it we can use an if statement as below

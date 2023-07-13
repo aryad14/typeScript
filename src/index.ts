@@ -1,6 +1,40 @@
 /** This is the file for navigating and manipulating the DOM elements */
 
-import {Invoice} from './modules/Invoice.js'
+
+// interfaces
+interface IsPerson {
+    name: string;
+    age?: number; // '?' signifies that age property can be null sometimes
+    speak(a: string): void;
+    spend(a: number): number;
+}
+
+const me: IsPerson = {
+    name: 'shaun',
+    age: 30,
+    speak(text: string): void {
+        console.log(text);
+    },
+    spend(amount: number): number {
+        console.log('I spent ', amount);
+        return amount;
+    },
+};
+
+console.log(me);
+me.speak('hello, world');
+
+const greetPerson = (person: IsPerson): void => {
+    console.log('hello ', person.name);
+}
+
+greetPerson(me);
+//greetPerson({name: 'shaun'});
+
+
+/** ------------------------------------------------------------------------------------------------------- */
+
+import { Invoice } from './modules/Invoice.js'
 
 const invoice1 = new Invoice("Arya", "Portfolio for Arya", 500);
 const invoice2 = new Invoice("Krish", "Portfolio for Krish", 1500);
@@ -19,7 +53,7 @@ invoices.forEach(inv => {
 
 
 
-
+/** ------------------------------------------------------------------------------------------------------- */
 
 /* Targetting DOM and Typecasting */
 
