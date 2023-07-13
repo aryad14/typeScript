@@ -37,6 +37,7 @@ greetPerson(me);
 import { Invoice } from './modules/Invoice.js'
 import { Payments } from './modules/Payments.js'
 import { hasFormat } from './interfaces/hasFormat.js'
+import { List } from './modules/List.js';
 
 
 let docOne: hasFormat;
@@ -91,6 +92,8 @@ const type = document.querySelector('#type') as HTMLInputElement;
 const toFrom = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
+const ul = document.querySelector('ul')!;
+const list = new List(ul);
 
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
@@ -102,4 +105,6 @@ form.addEventListener('submit', (e: Event) => {
         doc = new Payments(toFrom.value, details.value, amount.valueAsNumber);
     }
     console.log(doc);
+
+    list.render(doc,type.value,'end')
 });
