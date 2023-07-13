@@ -127,3 +127,24 @@ const getUser = (uid, name) => {
 const getUser1 = (user) => {
     console.log(`user age: ${user.age}`);
 };
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/** Function Signatures */
+let function1; //this is a function signature and whenever we define this function we need to specify the same number of params and same return type.
+function1 = (myName, post) => {
+    console.log(`my name is ${myName} and my post is ${post}`);
+};
+//another example
+let calcFunction;
+calcFunction = (num1, num2, action) => {
+    if (action === '+') {
+        return num1 + num2;
+    }
+    else {
+        return 'enter valid action';
+    }
+};
+//working of function signatures for objects
+let objDetails;
+objDetails = (myDetails) => {
+    console.log(`My name is: ${myDetails.name}, ${myDetails.age} years old`);
+};
