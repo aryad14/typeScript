@@ -105,3 +105,34 @@ objectTwo = {
 };
 
 console.log(objectTwo)
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/** Dynamic (any) type in Typescript */
+let a: any; //by declaring variable 'a' to 'any' type, we can store any value in the variable like a number string boolean etc.
+
+a = 20;
+a = 'Arya';
+a = false;
+a = {
+    name: "Arya",
+    age: 20
+};
+//from the above 4 lines, we can see that variable 'a' is given 'any' type so 'a' can be a number string boolean or an object
+
+
+//defining an array of type 'any'
+let arrayTypeAny: any[] = []; //WHILE EXPLICITLY DEFINING A TYPE WE NEED TO USE COLON ':' INSTEAD OF EQUAL TO SIGN
+
+arrayTypeAny.push(25);
+arrayTypeAny.push('Arya');
+arrayTypeAny.push(true);
+arrayTypeAny.push(25.23);
+arrayTypeAny.push('New');
+console.log(arrayTypeAny);
+
+//Defining an object of 'any' type
+let typeAnyObj: {
+    name: any,
+    age: any
+};
+
